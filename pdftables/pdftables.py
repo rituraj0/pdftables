@@ -111,10 +111,7 @@ def initialize_pdf_miner(fh):
     # Create a PDF parser object associated with the file object.
     parser = PDFParser(fh)
     # Create a PDF document object that stores the document structure.
-    doc = PDFDocument()
-    # Connect the parser and document objects.
-    parser.set_document(doc)
-    doc.set_parser(parser)
+    doc = PDFDocument(parser)
     # Supply the password for initialization.
     # (If no password is set, give an empty string.)
     doc.initialize("")
