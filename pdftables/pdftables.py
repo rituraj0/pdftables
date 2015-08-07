@@ -112,12 +112,6 @@ def initialize_pdf_miner(fh):
     parser = PDFParser(fh)
     # Create a PDF document object that stores the document structure.
     doc = PDFDocument(parser)
-    # Supply the password for initialization.
-    # (If no password is set, give an empty string.)
-    doc.initialize("")
-    # Check if the document allows text extraction. If not, abort.
-    if not doc.is_extractable:
-        raise ValueError("PDFDocument is_extractable was False.")
     # Create a PDF resource manager object that stores shared resources.
     rsrcmgr = PDFResourceManager()
     # Create a PDF device object.
@@ -131,8 +125,9 @@ def initialize_pdf_miner(fh):
     # Set parameters for analysis.
     laparams = LAParams()
     laparams.word_margin = 0.0
+    codec = 'utf-8'
     # Create a PDF page aggregator object.
-    device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+    device = PDFPageAggregator(rsrcmgr, codec=codec, laparams=laparams)
     interpreter = PDFPageInterpreter(rsrcmgr, device)
     return doc, interpreter, device
 
