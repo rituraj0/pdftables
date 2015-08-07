@@ -21,7 +21,8 @@ http://denis.papathanasiou.org/2010/08/04/extracting-text-images-from-pdf-files
 import sys
 import codecs
 
-from pdfminer.pdfdocument import PDFParser, PDFDocument
+from pdfminer.pdfdocument import PDFDocument
+from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.pdfdevice import PDFDevice
 from pdfminer.layout import LAParams, LTPage
