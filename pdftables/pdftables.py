@@ -127,7 +127,8 @@ def initialize_pdf_miner(fh):
     laparams.word_margin = 0.0
     codec = 'utf-8'
     # Create a PDF page aggregator object.
-    device = PDFPageAggregator(rsrcmgr, codec=codec, laparams=laparams)
+    device = PDFPageAggregator(rsrcmgr, laparams=laparams)
+
     interpreter = PDFPageInterpreter(rsrcmgr, device)
     return doc, interpreter, device
 
